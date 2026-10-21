@@ -33,4 +33,4 @@ def too_big(_): return jsonify(error="File is larger than 25 MB."), 413
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))
     print(f"\n  Finlens is running at http://localhost:{port}\n")
-    app.run(host="127.0.0.1", port=port, debug=False)
+    app.run(host="0.0.0.0", port=port, debug=False)
