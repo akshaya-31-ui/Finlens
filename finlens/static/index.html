@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Finlens – Financial report analyzer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><div class="wrap bar">
+  <a class="brand" href="/"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><rect x="2" y="12" width="4" height="8" fill="#1c5d6b"/><rect x="9" y="7" width="4" height="13" fill="#1c5d6b"/><rect x="16" y="2" width="4" height="18" fill="#1c5d6b"/></svg><span>Finlens</span></a>
+  <span class="tag">Annual and quarterly report analysis</span>
+</div></header>
+
+<main class="wrap layout">
+  <aside class="rail">
+    <h1>Upload a company report</h1>
+    <p class="lede">Finlens pulls the key figures out of a PDF, works out the standard ratios and flags risk language in the narrative.</p>
+    <form id="form">
+      <label class="drop" id="drop" for="file" tabindex="0">
+        <input id="file" type="file" accept="application/pdf" hidden>
+        <strong id="dropTitle">Choose a PDF</strong>
+        <span id="dropHint">or drag it here. Up to 25 MB, text-based PDFs only.</span>
+      </label>
+      <div class="field" id="strategyField" hidden>
+        <label for="strategy">AI commentary style</label>
+        <select id="strategy">
+          <option value="zero_shot">Direct instructions</option>
+          <option value="few_shot">With a worked example</option>
+          <option value="chain_of_thought">Step-by-step reasoning</option>
+        </select>
+      </div>
+      <button class="primary" id="go" type="submit" disabled>Analyze report</button>
+      <button class="link" id="sample" type="button">Try the sample report instead</button>
+    </form>
+    <p class="note">Output is a reading aid built from the document's own numbers. It is not investment advice.</p>
+  </aside>
+
+  <section class="out" id="out" aria-live="polite">
+    <div class="empty" id="empty">
+      <h2>What you will get</h2>
+      <table class="ledger ghost"><thead><tr><th>Figure</th><th class="n">This year</th><th class="n">Last year</th><th class="n">Change</th></tr></thead>
+      <tbody><tr><td>Revenue</td><td class="n">&nbsp;</td><td class="n">&nbsp;</td><td class="n">&nbsp;</td></tr><tr><td>Net income</td><td class="n"></td><td class="n"></td><td class="n"></td></tr><tr><td>Total equity</td><td class="n"></td><td class="n"></td><td class="n"></td></tr></tbody></table>
+      <p>A table of extracted figures, ratios rated against common benchmarks, and the sentences in the report that read as risks or as good news.</p>
+    </div>
+  </section>
+</main>
+<footer class="wrap foot">Finlens is a coursework project. Ratio thresholds are general rules of thumb and vary by industry.</footer>
+<script src="app.js"></script>
+</body>
+</html>
